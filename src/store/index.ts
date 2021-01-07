@@ -1,12 +1,18 @@
-import { createStore } from 'vuex'
+import Vue from "vue";
+import Vuex  from "vuex";
+import { Tools } from "@/interfaces/tools";
 
-export default createStore({
+Vue.use(Vuex);
+
+export default Vuex.Store<Tools>({
   state: {
+    tools: [],
   },
   mutations: {
+    setTools(state, tools) {
+      state.tools = tools;
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});

@@ -1,12 +1,12 @@
 <template>
   <div class="card">
     <a class="title-link" :href="link">{{ title }}</a>
-    <p class="description">{{ description }}</p>
+    <p class="description font-card">{{ description }}</p>
     <div class="flex-tags">
       <div
         v-for="tagsComputed in tagsComputeds"
         :key="tagsComputed"
-        class="tags"
+        class="tags font-card"
       >
         {{ tagsComputed }}
       </div>
@@ -51,26 +51,35 @@ $tagsColor: #10b26c;
 .title-link {
   text-align: center;
   display: block;
-  font: normal normal 600 24px/30px Source Sans Pro;
+  font: normal normal 600 30px/30px Source Sans Pro;
   letter-spacing: 0.48px;
   color: $fontColor;
   margin-bottom: 30px;
 }
 .description {
-  font: normal normal normal 18px/24px Source Sans Pro;
   letter-spacing: 0.36px;
   color: $fontColor;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+}
+.font-card {
+  font: normal normal normal 24px/24px Source Sans Pro;
 }
 .tags {
-  font: normal normal normal 18px/24px Source Sans Pro;
   text-align: left;
   color: $tagsColor;
   font-weight: bold;
   word-wrap: break-word;
-  width: 20%;
 }
 .flex-tags {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media only screen and(min-width: 900px) {
+  .flex-tags {
+    flex-direction: row;
+    gap: 20px;
+  }
 }
 </style>
