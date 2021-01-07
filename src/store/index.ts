@@ -35,10 +35,14 @@ export default createStore<StateTools>({
         tags: ["web", "framework", "node", "http2", "https", "localhost"],
       },
     ],
+    query: "",
   },
   mutations: {
     setTools(state, tools) {
       state.tools = tools;
+    },
+    setQuery(state, query) {
+      state.query = query;
     },
   },
   actions: {},
@@ -46,7 +50,7 @@ export default createStore<StateTools>({
   getters: {
     filtro(state) {
       return (query: string) => {
-        // if (!query) return state.tools;
+        if (!query) return state.tools;
         return state.tools.filter((tool) => {
           return tool.tags.includes(query);
         });

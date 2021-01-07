@@ -1,7 +1,7 @@
 <template>
   <transition name="fade-card">
     <div class="grid-list entrada">
-      <Card v-for="tool in tools" :key="tool.id" v-bind="tool" />
+      <Card v-for="tool in toolsComputed" :key="tool.id" v-bind="tool" />
     </div>
   </transition>
 </template>
@@ -22,16 +22,12 @@ import store from "@/store";
 })
 export default class List extends Vue {
   private store = useStore();
-  private tools = store.getters.filtro("");
+  private tools = store.getters.filtro(this.store.state.query);
 
   get toolsComputed() {
-    return store.getters.filtro("");
+    return this.store.getters.filtro(this.store.state.query);
   }
   msg!: string;
-
-  mounted() {
-    console.log("moutend");
-  }
 }
 </script>
 

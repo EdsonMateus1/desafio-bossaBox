@@ -8,4 +8,5 @@ export interface Tool {
 
 export interface StateTools {
   tools: Array<Tool>;
+  query: string;
 }

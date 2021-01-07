@@ -1,7 +1,7 @@
 <template>
   <div class="padding input-container">
     <input
-      @keyup="filter"
+      @keyup="queryTools"
       v-model="query"
       class="input"
       type="text"
@@ -17,6 +17,10 @@ import { useStore } from "vuex";
 export default class Input extends Vue {
   private store = useStore();
   private query = "";
+
+  queryTools() {
+    this.store.commit("setQuery", this.query);
+  }
 }
 </script>
 
