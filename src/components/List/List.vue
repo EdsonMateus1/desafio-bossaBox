@@ -32,6 +32,7 @@ export default class List extends Vue {
   deleteTool(id: string) {
     this.store.dispatch("deleteTool", id);
   }
+
   mounted() {
     this.store.dispatch("getTools");
   }
