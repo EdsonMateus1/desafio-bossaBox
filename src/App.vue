@@ -1,30 +1,49 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
+$fontColor: #170c3a;
+
+html,
+body,
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Source Sans Pro;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.title1 {
+  font: normal normal 600 32px/40px Source Sans Pro;
+  letter-spacing: 0.84px;
+  color: $fontColor;
+}
+.title2 {
+  text-align: left;
+  font: normal normal 600 25px/26px Source Sans Pro;
+  letter-spacing: 0.6px;
+  color: $fontColor;
+}
+@media screen and(min-width: 700px) {
+  .title1 {
+    font: normal normal 600 42px/50px Source Sans Pro;
   }
+  .title2 {
+    font: normal normal 600 30px/36px Source Sans Pro;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+.padding {
+  padding: 20px;
+}
+.divider{
+  margin: 25px 0px;
 }
 </style>

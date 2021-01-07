@@ -1,0 +1,76 @@
+<template>
+  <div class="card">
+    <a class="title-link" :href="link">{{ title }}</a>
+    <p class="description">{{ description }}</p>
+    <div class="flex-tags">
+      <div
+        v-for="tagsComputed in tagsComputeds"
+        :key="tagsComputed"
+        class="tags"
+      >
+        {{ tagsComputed }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+
+@Options({
+  props: {
+    title: String,
+    link: String,
+    description: String,
+    tags: Array,
+  },
+})
+export default class Card extends Vue {
+  title!: string;
+  link!: string;
+  description!: string;
+  tags!: Array<string>;
+
+  get tagsComputeds() {
+    return this.tags.map((tag) => tag);
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+$fontColor: #170c3a;
+$tagsColor: #10b26c;
+.card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 10px #0000000d;
+  border: 1px solid #ebeaed;
+  border-radius: 5px;
+  padding: 30px;
+}
+.title-link {
+  text-align: center;
+  display: block;
+  font: normal normal 600 24px/30px Source Sans Pro;
+  letter-spacing: 0.48px;
+  color: $fontColor;
+  margin-bottom: 30px;
+}
+.description {
+  font: normal normal normal 18px/24px Source Sans Pro;
+  letter-spacing: 0.36px;
+  color: $fontColor;
+  margin-bottom: 10px;
+}
+.tags {
+  font: normal normal normal 18px/24px Source Sans Pro;
+  text-align: left;
+  color: $tagsColor;
+  font-weight: bold;
+  word-wrap: break-word;
+  width: 20%;
+}
+.flex-tags {
+  display: flex;
+}
+</style>
