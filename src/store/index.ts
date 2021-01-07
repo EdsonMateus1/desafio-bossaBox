@@ -52,7 +52,7 @@ export default createStore<StateTools>({
       return (query: string) => {
         if (!query) return state.tools;
         return state.tools.filter((tool) => {
-          return tool.tags.includes(query);
+          return tool.tags.toString().includes(query);
         });
       };
     },

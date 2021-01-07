@@ -14,7 +14,7 @@
 import { Options, Vue } from "vue-class-component";
 import List from "@/components/List/List.vue";
 import Header from "@/components/Header/Header.vue";
-import Input from "@/components/shared/Inputs/input.vue";
+import Input from "@/components/Inputs/input.vue";
 
 @Options({
   components: {

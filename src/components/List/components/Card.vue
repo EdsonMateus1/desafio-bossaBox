@@ -71,13 +71,15 @@ $tagsColor: #10b26c;
   word-wrap: break-word;
 }
 .flex-tags {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
   gap: 10px;
+  
 }
 
 @media only screen and(min-width: 900px) {
   .flex-tags {
+    display: flex;
     flex-direction: row;
     gap: 20px;
   }
