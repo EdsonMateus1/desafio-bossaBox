@@ -6,6 +6,6 @@ export interface Tool {
   tags: Array<string>;
 }
 
-export interface Tools {
+export interface StateTools {
   tools: Array<Tool>;
 }

@@ -10,6 +10,7 @@
 import { Options, Vue } from "vue-class-component";
 import Card from "./components/Card.vue";
 import { useStore } from "vuex";
+import store from "@/store";
 
 @Options({
   components: {
@@ -20,9 +21,17 @@ import { useStore } from "vuex";
   },
 })
 export default class List extends Vue {
-  private tools = []
+  private store = useStore();
+  private tools = store.getters.filtro("");
+
+  get toolsComputed() {
+    return store.getters.filtro("");
+  }
   msg!: string;
 
+  mounted() {
+    console.log("moutend");
+  }
 }
 </script>
 

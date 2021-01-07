@@ -1,13 +1,23 @@
 <template>
   <div class="padding input-container">
-    <input class="input" type="text" placeholder="Pesquisar?" />
+    <input
+      @keyup="filter"
+      v-model="query"
+      class="input"
+      type="text"
+      placeholder="Pesquisar?"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
+import { useStore } from "vuex";
 
-export default class Input extends Vue {}
+export default class Input extends Vue {
+  private store = useStore();
+  private query = "";
+}
 </script>
 
 <style lang="scss" scoped>
