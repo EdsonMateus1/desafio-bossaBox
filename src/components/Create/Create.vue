@@ -37,7 +37,7 @@ export default class Create extends Vue {
 <style lang="scss" scoped>
 .modalForm {
   position: absolute;
-  top: 40%;
+  top: calc(50vh - 200px);
   left: 5%;
   background-color: red;
   height: 400px;
@@ -46,7 +46,7 @@ export default class Create extends Vue {
 
 @media only screen and(min-width: 700px) {
   .modalForm {
-    top: 30%;
+    top: calc(50vh - 200px);
     left: 25%;
     width: 50%;
   }
