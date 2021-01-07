@@ -1,6 +1,11 @@
 <template>
   <div class="grid-list entrada">
-    <Card v-for="tool in tools" :key="tool.id" v-bind="tool" />
+    <Card
+      v-for="tool in tools"
+      :key="tool.id"
+      v-bind="tool"
+      :onClick="() => deleteTool(tool.id)"
+    />
   </div>
 </template>
 
@@ -23,6 +28,10 @@ export default class List extends Vue {
   get tools() {
     return this.store.getters.filtro(this.store.state.query);
   }
+
+  async deleteTool(id: string) {
+    this.store.dispatch("deleteTool", id);
+  }
   mounted() {
     this.store.dispatch("getTools");
   }
@@ -39,7 +48,7 @@ export default class List extends Vue {
 }
 
 .entrada {
-  animation: entrada .8s steps(50) 0s;
+  animation: entrada 0.8s steps(50) 0s;
 }
 
 @media only screen and(min-width: 700px) {

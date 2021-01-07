@@ -1,11 +1,6 @@
 <template>
   <div class="card">
-    <Button content="Excluir" class="button-card"> </Button>
-
-    <!-- <img
-      src="https://img.icons8.com/material-sharp/24/000000/delete-sign.png"
-    /> -->
-    <!-- <a href="https://icons8.com/icon/83981/excluir">Excluir icon by Icons8</a> -->
+    <button @click="onClick" class="button-card button ">Excluir</button>
     <a class="title-link" :href="link">{{ title }}</a>
     <p class="description font-card">{{ description }}</p>
     <div class="flex-tags">
@@ -30,6 +25,7 @@ import Button from "@/components/shared/Buttons/Button.vue";
     link: String,
     description: String,
     tags: Array,
+    onClick: Function,
   },
   components: {
     Button,
@@ -40,6 +36,7 @@ export default class Card extends Vue {
   link!: string;
   description!: string;
   tags!: Array<string>;
+  onClick!: Function;
 
   get tagsComputeds() {
     return this.tags.map((tag) => tag);
@@ -87,14 +84,11 @@ $tagsColor: #10b26c;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
+
 .button-card {
   width: 6em;
   align-self: flex-end;
   padding: 5px;
-}
-.icone {
-  width: 15px;
-  height: 15px;
 }
 
 @media only screen and(min-width: 900px) {

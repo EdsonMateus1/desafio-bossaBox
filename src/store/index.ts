@@ -18,8 +18,23 @@ export default createStore<StateTools>({
   },
   actions: {
     async getTools({ commit }) {
-      const res = await axios.get(`${baseUrl}/tools`);
-      commit("setTools", res.data);
+      try {
+        const res = await axios.get(`${baseUrl}/tools`);
+        commit("setTools", res.data);
+      } catch (error) {
+        console.log("get", error);
+      }
+    },
+    async deleteTool({ dispatch }, id) {
+      try {
+        console.log(id);
+        const res = await axios.delete(`${baseUrl}/tools/${id}`);
+        if (res.status === 200) {
+          dispatch("getTools");
+        }
+      } catch (error) {
+        console.log("delete", error);
+      }
     },
   },
   modules: {},
