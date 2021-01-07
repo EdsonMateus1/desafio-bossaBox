@@ -27,7 +27,6 @@ export default createStore<StateTools>({
     },
     async deleteTool({ dispatch }, id) {
       try {
-        console.log(id);
         const res = await axios.delete(`${baseUrl}/tools/${id}`);
         if (res.status === 200) {
           dispatch("getTools");
