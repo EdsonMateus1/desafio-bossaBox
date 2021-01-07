@@ -1,7 +1,7 @@
 <template>
   <transition name="fade-card">
     <div class="grid-list entrada">
-      <Card v-for="tool in toolsComputed" :key="tool.id" v-bind="tool" />
+      <Card v-for="tool in tools" :key="tool.id" v-bind="tool" />
     </div>
   </transition>
 </template>
@@ -10,7 +10,6 @@
 import { Options, Vue } from "vue-class-component";
 import Card from "./components/Card.vue";
 import { useStore } from "vuex";
-import store from "@/store";
 
 @Options({
   components: {
@@ -22,12 +21,13 @@ import store from "@/store";
 })
 export default class List extends Vue {
   private store = useStore();
-  private tools = store.getters.filtro(this.store.state.query);
-
-  get toolsComputed() {
+  msg!: string;
+  get tools() {
     return this.store.getters.filtro(this.store.state.query);
   }
-  msg!: string;
+  mounted() {
+    this.store.dispatch("getTools");
+  }
 }
 </script>
 
