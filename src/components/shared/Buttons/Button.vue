@@ -1,11 +1,22 @@
 <template>
-  <button class="button">Adiconar ferramenta</button>
+  <button @click="onClick" class="button">
+    {{ content }}
+    <slot></slot>
+  </button>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Vue, Options } from "vue-class-component";
 
-export default class Button extends Vue {}
+@Options({
+  props: {
+    content: String,
+    onClick: Function,
+  },
+})
+export default class Button extends Vue {
+  content!: string;
+}
 </script>
 
 <style lang="scss" scoped>

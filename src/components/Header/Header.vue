@@ -5,7 +5,7 @@
       <h2 class="title2">Very UseFull Tools to</h2>
       <h2 class="title2">Remember</h2>
     </div>
-    <Button />
+    <Button content="Adiconar uma tarefa"/>
   </div>
 </template>
 

@@ -1,9 +1,7 @@
 <template>
-  <transition name="fade-card">
-    <div class="grid-list entrada">
-      <Card v-for="tool in tools" :key="tool.id" v-bind="tool" />
-    </div>
-  </transition>
+  <div class="grid-list entrada">
+    <Card v-for="tool in tools" :key="tool.id" v-bind="tool" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -40,18 +38,8 @@ export default class List extends Vue {
   padding-bottom: 100px;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
 .entrada {
-  animation: entrada 0.5s steps(50) 0.1s;
+  animation: entrada .8s steps(50) 0s;
 }
 
 @media only screen and(min-width: 700px) {
@@ -68,6 +56,7 @@ export default class List extends Vue {
 
   to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 </style>
