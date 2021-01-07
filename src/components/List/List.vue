@@ -29,7 +29,7 @@ export default class List extends Vue {
     return this.store.getters.filtro(this.store.state.query);
   }
 
-  async deleteTool(id: string) {
+  deleteTool(id: string) {
     this.store.dispatch("deleteTool", id);
   }
   mounted() {

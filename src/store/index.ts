@@ -1,7 +1,6 @@
 import { createStore } from "vuex";
 import { StateTools, Tool } from "@/interfaces/tools";
-import axios from "axios";
-import { baseUrl } from "@/services/api";
+import axios from "@/services/api";
 
 export default createStore<StateTools>({
   state: {
@@ -19,7 +18,7 @@ export default createStore<StateTools>({
   actions: {
     async getTools({ commit }) {
       try {
-        const res = await axios.get(`${baseUrl}/tools`);
+        const res = await axios.get(`/tools`);
         commit("setTools", res.data);
       } catch (error) {
         console.log("get", error);
@@ -27,7 +26,7 @@ export default createStore<StateTools>({
     },
     async deleteTool({ dispatch }, id) {
       try {
-        const res = await axios.delete(`${baseUrl}/tools/${id}`);
+        const res = await axios.delete(`/tools/${id}`);
         if (res.status === 200) {
           dispatch("getTools");
         }
