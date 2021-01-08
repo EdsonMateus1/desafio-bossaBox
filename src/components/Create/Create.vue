@@ -165,7 +165,7 @@ export default class Create extends Vue {
   height: 35px;
 }
 .button-form {
-  width: 400px;
+  width: 70%;
   margin-top: 30px;
   font: normal normal normal 26px/26px Source Sans Pro;
   align-self: center;
