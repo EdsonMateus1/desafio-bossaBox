@@ -34,15 +34,17 @@ export default createStore<StateTools>({
         console.log("delete", error);
       }
     },
-    async createTools({ dispatch }, data: object) {
+    async createTools({ dispatch }, data: Tool) {
       try {
         const res = await axios.post("/tools", data);
         if (res.status === 201) {
           dispatch("getTools");
           return true
         }
+        return false
       } catch (error) {
         console.log("post", error);
+        return false
       }
     },
   },

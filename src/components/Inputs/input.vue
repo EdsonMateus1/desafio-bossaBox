@@ -5,7 +5,7 @@
       v-model="query"
       class="input"
       type="text"
-      placeholder="Pesquisar?"
+      placeholder="Digite o que está procurando…"
     />
   </div>
 </template>
@@ -32,10 +32,15 @@ export default class Input extends Vue {
   background: #f5f4f6 0% 0% no-repeat padding-box;
   border: 1px solid #ebeaed;
   border-radius: 5px;
-  box-shadow: 2px 2px 13px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 6px -2px rgba(0, 0, 0, 0.75);
 }
 .input-container {
   width: 100%;
+}
+.input::placeholder {
+  font: normal normal normal 20px/26px Source Sans Pro;
+  letter-spacing: 0.4px;
+  color: #b1adb9;
 }
 
 @media screen and(min-width: 500px) {

@@ -53,8 +53,6 @@ export default class Header extends Vue {
   opacity: 1;
 }
 
-
-
 .v-leave {
   opacity: 1;
 }

@@ -1,16 +1,26 @@
 <template>
   <div class="modalForm">
-    modal
+    <form>
+      <input type="text" />
+      <input type="text" />
+      <textarea></textarea>
+      <select>
+        <option value="">node</option>
+        <option value="">webapps</option>
+        <option value="">domain</option>
+        <option value="">developer</option>
+      </select>
+    </form>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
 import { useStore } from "vuex";
-
+import { Tool } from "@/interfaces/tools";
 export default class Create extends Vue {
   private store = useStore();
-  async createTools(data: object) {
+  async createTools(data: Tool) {
     data = {
       title: "hotel",
       link: "https://github.com/typicode/hotel",
@@ -39,14 +49,12 @@ export default class Create extends Vue {
   position: absolute;
   top: calc(50vh - 200px);
   left: 5%;
-  background-color: red;
-  height: 400px;
+  height: 80%;
   width: 90%;
 }
 
 @media only screen and(min-width: 700px) {
   .modalForm {
-    top: calc(50vh - 200px);
     left: 25%;
     width: 50%;
   }
