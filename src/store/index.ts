@@ -50,7 +50,7 @@ export default createStore<StateTools>({
   },
   modules: {},
   getters: {
-    filtro(state) {
+    filters(state) {
       return (query: string) => {
         if (!query) return state.tools;
         return state.tools.filter(

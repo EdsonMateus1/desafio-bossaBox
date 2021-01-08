@@ -74,7 +74,7 @@
         />
 
         <div class="fields input combo-box-container">
-          <strong class="combo-box" v-for="box in toolsForm.tags" :key="box">
+          <strong class="combo-box" v-for="box in toolsForm.tags[1]" :key="box">
             {{ box }}
           </strong>
         </div>

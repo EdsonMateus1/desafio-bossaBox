@@ -26,7 +26,7 @@ export default class List extends Vue {
   private store = useStore();
   msg!: string;
   get tools() {
-    return this.store.getters.filtro(this.store.state.query);
+    return this.store.getters.filters(this.store.state.query);
   }
 
   deleteTool(id: string) {
