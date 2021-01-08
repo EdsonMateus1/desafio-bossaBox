@@ -89,6 +89,7 @@ $tagsColor: #10b26c;
   width: 6em;
   align-self: flex-end;
   padding: 5px;
+  margin-bottom: 30px;
 }
 
 @media only screen and(min-width: 900px) {
@@ -96,6 +97,9 @@ $tagsColor: #10b26c;
     display: flex;
     flex-direction: row;
     gap: 20px;
+  }
+  .button-card{
+    margin-bottom: 0px;
   }
 }
 </style>
