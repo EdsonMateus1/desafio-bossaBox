@@ -78,4 +78,7 @@ textarea {
   color: #170c3a;
   margin: 5px 0px;
 }
+svg {
+  fill: #ffffff;
+}
 </style>
