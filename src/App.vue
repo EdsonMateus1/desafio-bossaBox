@@ -60,4 +60,22 @@ button {
 .button:hover {
   background-color: #10b26c;
 }
+.fields {
+  background: #f5f4f6 0% 0% no-repeat padding-box;
+  border: 1px solid #ebeaed;
+  border-radius: 5px;
+  font: normal normal normal 20px/25px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #170c3a;
+}
+input,
+textarea {
+  padding: 5px;
+}
+.label {
+  font: normal normal 600 20px/25px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #170c3a;
+  margin: 5px 0px;
+}
 </style>

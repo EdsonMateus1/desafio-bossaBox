@@ -39,12 +39,12 @@ export default createStore<StateTools>({
         const res = await axios.post("/tools", data);
         if (res.status === 201) {
           dispatch("getTools");
-          return true
+          return true;
         }
-        return false
+        return false;
       } catch (error) {
         console.log("post", error);
-        return false
+        return false;
       }
     },
   },
@@ -53,8 +53,20 @@ export default createStore<StateTools>({
     filtro(state) {
       return (query: string) => {
         if (!query) return state.tools;
-        return state.tools.filter((tool) =>
-          tool.tags.toString().includes(query)
+        return state.tools.filter(
+          (tool) => {
+            const queryFormat = query.toLocaleLowerCase().trim();
+            return (
+              tool.tags
+                .toString()
+                .toLocaleLowerCase()
+                .includes(queryFormat) ||
+              tool.title
+                .toString()
+                .toLocaleLowerCase()
+                .includes(queryFormat)
+            );
+          }
         );
       };
     },

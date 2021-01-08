@@ -43,11 +43,10 @@ export default class Header extends Vue {
 
 .v-enter {
   opacity: 0;
-  transform: scale(10);
 }
 
 .v-enter-active {
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .v-enter-to {
   opacity: 1;
@@ -58,7 +57,7 @@ export default class Header extends Vue {
 }
 
 .v-leave-active {
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .v-leave-to {
   opacity: 0;
