@@ -7,7 +7,7 @@
     </div>
     <Button :onClick="reverseShowModal" content="Adiconar uma tarefa" />
     <transition>
-      <Create v-show="showModal" />
+      <Create @onCloseModal="showModal = $event" v-if="showModal" />
     </transition>
   </div>
 </template>
@@ -25,7 +25,6 @@ import Create from "@/components/Create/Create.vue";
 })
 export default class Header extends Vue {
   private showModal = false;
-
   reverseShowModal() {
     this.showModal = !this.showModal;
   }

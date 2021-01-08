@@ -1,19 +1,34 @@
 <template>
   <div class="modalForm padding">
-    <form class="form">
+    <form @submit.prevent="createTools" class="form">
       <div style="margin-top: 0px;" class="itens-form">
-        <label style="margin-top: 0px;" class="label" for="title">tool title</label>
-        <input class="fields input" name="title" type="text" id="title" />
+        <label style="margin-top: 0px;" class="label" for="title"
+          >tool title</label
+        >
+        <input
+          v-model="toolsForm.title"
+          class="fields input"
+          name="title"
+          type="text"
+          id="title"
+        />
       </div>
 
       <div class="itens-form">
         <label class="label" for="link">tool link</label>
-        <input class="fields input" name="link" type="text" id="link" />
+        <input
+          v-model="toolsForm.link"
+          class="fields input"
+          name="link"
+          type="text"
+          id="link"
+        />
       </div>
 
       <div class="itens-form">
         <label class="label" for="description">tool description</label>
         <textarea
+          v-model="toolsForm.description"
           class="fields textarea"
           name="description"
           id="description"
@@ -21,15 +36,30 @@
       </div>
 
       <div class="itens-form">
-        <label class="label" for="tags">tags</label>
-        <select class="fields select" name="" id="">
-          <option class="option" value="node">node</option>
-          <option class="option" value="organizing">organizing</option>
-          <option class="option" value="developer">developer</option>
-        </select>
-        <input class="fields input" type="text" name="tags" id="tags" />
+        <div class="container-button-add">
+          <label style="margin: 0px" class="label" for="tags">tags</label>
+          <button
+            @click.prevent="addComboBoxController"
+            class="button button-add-tags"
+          >
+            +
+          </button>
+        </div>
+        <input
+          v-model="tagsControoler"
+          class="fields input input-combo-box"
+          name="link"
+          type="text"
+          id="tags"
+        />
+
+        <div class="fields input combo-box-container">
+          <strong class="combo-box" v-for="box in toolsForm.tags" :key="box">
+            {{ box }}
+          </strong>
+        </div>
       </div>
-      <Button class="button-form" content="Adicionar" />
+      <Button type="submit" class="button-form" content="Adicionar" />
     </form>
   </div>
 </template>
@@ -42,29 +72,26 @@ import Button from "@/components/shared/Buttons/Button.vue";
 
 @Options({
   components: { Button },
+  emits: ["onCloseModal"] ,
 })
 export default class Create extends Vue {
   private store = useStore();
-  async createTools(data: Tool) {
-    data = {
-      title: "hotel",
-      link: "https://github.com/typicode/hotel",
-      description:
-        "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
-      tags: [
-        "node",
-        "organizing",
-        "webapps",
-        "domain",
-        "developer",
-        "https",
-        "proxy",
-      ],
-    };
-    const res = await this.store.dispatch("createTools", data);
-    if (res) {
-      console.log("cadastrado");
-    }
+  private tagsControoler = "";
+  private toolsForm = {
+    title: "",
+    link: "",
+    description: "",
+    tags: ["tags"],
+  };
+
+  addComboBoxController() {
+    const selectValue = this.tagsControoler.toString();
+    this.toolsForm.tags.push(selectValue);
+    this.tagsControoler = "";
+  }
+  async createTools() {
+    const res = await this.store.dispatch("createTools", this.toolsForm);
+    this.$emit("onCloseModal", false);
   }
 }
 </script>
@@ -80,6 +107,12 @@ export default class Create extends Vue {
   border: 1px solid #ebeaed;
   border-radius: 5px;
   padding: 30px 20px;
+}
+
+.combo-box-container {
+  display: flex;
+  align-items: center;
+  height: 50px !important;
 }
 
 .form {
@@ -98,15 +131,35 @@ export default class Create extends Vue {
 .input {
   height: 35px;
 }
-.select {
+.input-combo-box {
   margin-bottom: 20px;
-  height: 35px;
   font: normal normal normal 20px/26px Source Sans Pro;
   letter-spacing: 0.4px;
   color: #170c3a;
+  height: 35px;
 }
-.button-form{
+.button-form {
   margin-top: 10px;
+}
+.combo-box {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #ebeaed;
+  border-radius: 5px;
+  font-weight: normal;
+  font: normal normal normal 20px/26px Source Sans Pro;
+  letter-spacing: 0.4px;
+  color: #170c3a;
+  margin: 0px 5px;
+  height: 42px;
+  padding: 5px;
+}
+.button-add-tags {
+  padding: 5px;
+  margin-left: 8px;
+  font: normal normal 600 15px/13px Source Sans Pro;
+}
+.container-button-add {
+  margin: 5px 0px;
 }
 
 @media only screen and(min-width: 700px) {
