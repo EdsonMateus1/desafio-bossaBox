@@ -74,8 +74,8 @@
         />
 
         <div class="fields input combo-box-container">
-          <strong class="combo-box" v-for="box in toolsForm.tags[1]" :key="box">
-            {{ box }}
+          <strong class="combo-box" v-for="tag in toolsForm.tags" :key="tag">
+            {{ tag }}
           </strong>
         </div>
       </div>
@@ -132,7 +132,6 @@ export default class Create extends Vue {
   padding: 25px 20px 30px;
   display: flex;
   flex-direction: column;
-  
 }
 
 .combo-box-container {
@@ -169,7 +168,6 @@ export default class Create extends Vue {
   margin-top: 30px;
   font: normal normal normal 26px/26px Source Sans Pro;
   align-self: center;
-  
 }
 .combo-box {
   background: #ffffff 0% 0% no-repeat padding-box;
@@ -198,7 +196,7 @@ export default class Create extends Vue {
   background-color: white !important;
   box-shadow: none;
 }
-.button-fechar svg{
+.button-fechar svg {
   fill: #10b26c;
 }
 @media only screen and(min-width: 700px) {
