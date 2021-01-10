@@ -6,7 +6,9 @@ export interface Tool {
   tags: Array<string>;
 }
 
-export interface StateTools {
+export interface Store {
   tools: Array<Tool>;
   query: string;
 }
+
+

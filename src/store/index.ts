@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
-import { StateTools, Tool } from "@/interfaces/tools";
+import { Store, Tool } from "@/interfaces/tools";
 import axios from "@/services/api";
 
-export default createStore<StateTools>({
+export default createStore<Store>({
   state: {
     tools: [],
     query: "",

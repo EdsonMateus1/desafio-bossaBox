@@ -13,6 +13,7 @@
 import { Options, Vue } from "vue-class-component";
 import Card from "./components/Card.vue";
 import { useStore } from "vuex";
+import { Store} from "@/interfaces/tools";
 
 @Options({
   components: {
@@ -23,7 +24,7 @@ import { useStore } from "vuex";
   },
 })
 export default class List extends Vue {
-  private store = useStore();
+  private store = useStore<Store>();
   msg!: string;
   get tools() {
     return this.store.getters.filters(this.store.state.query);

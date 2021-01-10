@@ -53,7 +53,7 @@ $tagsColor: #10b26c;
   box-shadow: 0px 10px 10px #0000000d;
   border: 1px solid #ebeaed;
   border-radius: 5px;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }

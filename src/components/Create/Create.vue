@@ -88,19 +88,20 @@
 import { Options, Vue } from "vue-class-component";
 import { useStore } from "vuex";
 import Button from "@/components/shared/Buttons/Button.vue";
+import { Store,Tool } from "@/interfaces/tools";
 
 @Options({
   components: { Button },
   emits: ["onCloseModal"],
 })
 export default class Create extends Vue {
-  private store = useStore();
+  private store = useStore<Store>();
   private tagsControoler = "";
-  private toolsForm = {
+  private toolsForm: Tool  = {
     title: "",
     link: "",
     description: "",
-    tags: ["tools"],
+    tags: [],
   };
 
   closeModal() {
@@ -112,6 +113,7 @@ export default class Create extends Vue {
     this.toolsForm.tags.push(selectValue);
     this.tagsControoler = "";
   }
+
   async createTools() {
     const res = await this.store.dispatch("createTools", this.toolsForm);
     this.$emit("onCloseModal", !res);
