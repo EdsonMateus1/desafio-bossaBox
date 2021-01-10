@@ -109,7 +109,7 @@ export default class Create extends Vue {
   }
 
   addComboBoxController() {
-    const selectValue = this.tagsControoler.toString();
+    const selectValue = this.tagsControoler;
     this.toolsForm.tags.push(selectValue);
     this.tagsControoler = "";
   }
