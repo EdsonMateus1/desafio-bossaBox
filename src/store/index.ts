@@ -6,6 +6,7 @@ export default createStore<Store>({
   state: {
     tools: [],
     query: "",
+    showModal: false,
   },
   mutations: {
     setTools(state, tools) {
@@ -13,6 +14,9 @@ export default createStore<Store>({
     },
     setQuery(state, query) {
       state.query = query;
+    },
+    controllerModal(state) {
+      state.showModal = !state.showModal
     },
   },
   actions: {
@@ -53,21 +57,19 @@ export default createStore<Store>({
     filters(state) {
       return (query: string) => {
         if (!query) return state.tools;
-        return state.tools.filter(
-          (tool) => {
-            const queryFormat = query.toLocaleLowerCase().trim();
-            return (
-              tool.tags
-                .toString()
-                .toLocaleLowerCase()
-                .includes(queryFormat) ||
-              tool.title
-                .toString()
-                .toLocaleLowerCase()
-                .includes(queryFormat)
-            );
-          }
-        );
+        return state.tools.filter((tool) => {
+          const queryFormat = query.toLocaleLowerCase().trim();
+          return (
+            tool.tags
+              .toString()
+              .toLocaleLowerCase()
+              .includes(queryFormat) ||
+            tool.title
+              .toString()
+              .toLocaleLowerCase()
+              .includes(queryFormat)
+          );
+        });
       };
     },
   },

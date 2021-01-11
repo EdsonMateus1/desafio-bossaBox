@@ -6,9 +6,6 @@
       <h2 class="title2">Remember</h2>
     </div>
     <Button :onClick="reverseShowModal" content="Adiconar uma tarefa" />
-    <transition>
-      <Create @onCloseModal="showModal = $event" v-if="showModal" />
-    </transition>
   </div>
 </template>
 
@@ -16,6 +13,8 @@
 import { Vue, Options } from "vue-class-component";
 import Button from "@/components/shared/Buttons/Button.vue";
 import Create from "@/components/Create/Create.vue";
+import { useStore } from "vuex";
+import { Store } from "@/interfaces/tools";
 
 @Options({
   components: {
@@ -24,9 +23,9 @@ import Create from "@/components/Create/Create.vue";
   },
 })
 export default class Header extends Vue {
-  private showModal = false;
+  private store = useStore<Store>();
   reverseShowModal() {
-    this.showModal = !this.showModal;
+    this.store.commit("controllerModal")
   }
 }
 </script>
@@ -38,28 +37,5 @@ export default class Header extends Vue {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-}
-
-.v-enter {
-  opacity: 0;
-}
-
-.v-enter-active {
-  transition: all 0.5s;
-}
-.v-enter-to {
-  opacity: 1;
-}
-
-.v-leave {
-  opacity: 1;
-}
-
-.v-leave-active {
-  transition: all 0.5s;
-}
-.v-leave-to {
-  opacity: 0;
-  transform: scale(1.2);
 }
 </style>
