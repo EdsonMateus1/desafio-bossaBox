@@ -8,7 +8,7 @@
       <List />
     </div>
     <transition>
-      <div @dblclick="clossModal" v-if="showModal" class="container-modal">
+      <div v-if="showModal" class="container-modal">
         <Create />
       </div>
     </transition>

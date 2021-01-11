@@ -131,12 +131,6 @@ export default class Create extends Vue {
   width: 98%;
 }
 
-.combo-box-container {
-  display: flex;
-  align-items: center;
-  height: 50px !important;
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -166,17 +160,23 @@ export default class Create extends Vue {
   font: normal normal normal 26px/26px Source Sans Pro;
   align-self: center;
 }
+.combo-box-container {
+  display: flex;
+  align-items: center;
+  height: 50px !important;
+}
 .combo-box {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #ebeaed;
   border-radius: 5px;
-  font-weight: normal;
   font: normal normal normal 20px/26px Source Sans Pro;
   letter-spacing: 0.4px;
   color: #170c3a;
   margin: 0px 5px;
   height: 42px;
   padding: 5px;
+  display: flex;
+  align-items: center;
 }
 .button-add-tags {
   padding: 4px;
