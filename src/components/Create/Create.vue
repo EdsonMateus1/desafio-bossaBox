@@ -113,8 +113,8 @@ export default class Create extends Vue {
   }
 
   async createTools() {
-    const res = await this.store.dispatch("createTools", this.toolsForm);
-    this.$emit("onCloseModal", !res);
+    await this.store.dispatch("createTools", this.toolsForm);
+    this.closeModal();
   }
 }
 </script>
@@ -128,6 +128,7 @@ export default class Create extends Vue {
   padding: 25px 20px 30px;
   display: flex;
   flex-direction: column;
+  width: 90%;
 }
 
 .combo-box-container {
@@ -197,7 +198,6 @@ export default class Create extends Vue {
 }
 @media only screen and(min-width: 700px) {
   .modalForm {
-    left: 25%;
     width: 50%;
   }
 }

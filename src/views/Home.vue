@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div :class="{'overflow-hidden': showModal}"  class="layout">
     <Header />
     <div class="divider"></div>
     <Input />
@@ -8,7 +8,7 @@
       <List />
     </div>
     <transition>
-      <div @click="clossModal" v-if="showModal" class="container-modal">
+      <div @dblclick="clossModal" v-if="showModal" class="container-modal">
         <Create />
       </div>
     </transition>
@@ -38,7 +38,6 @@ export default class Home extends Vue {
   clossModal() {
     store.commit("controllerModal");
   }
-
   get showModal() {
     return store.state.showModal;
   }
@@ -57,11 +56,15 @@ export default class Home extends Vue {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
 .layout {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 .home {
   width: 100%;

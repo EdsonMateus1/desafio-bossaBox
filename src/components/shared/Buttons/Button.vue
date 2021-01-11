@@ -1,5 +1,5 @@
 <template>
-  <button @click="onClick" class="button">
+  <button @click.stop="onClick" class="button">
     {{ content }}
     <slot></slot>
   </button>
