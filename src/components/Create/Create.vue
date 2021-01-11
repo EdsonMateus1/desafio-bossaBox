@@ -125,10 +125,10 @@ export default class Create extends Vue {
   box-shadow: 0px 20px 25px #0000001a;
   border: 1px solid #ebeaed;
   border-radius: 5px;
-  padding: 25px 20px 30px;
+  padding: 25px 15px 30px;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 98%;
 }
 
 .combo-box-container {
@@ -196,9 +196,10 @@ export default class Create extends Vue {
 .button-fechar svg {
   fill: #10b26c;
 }
-@media only screen and(min-width: 700px) {
+@media only screen and(min-width: 900px) {
   .modalForm {
-    width: 50%;
+    width: 900px;
+    padding: 25px 20px 30px;
   }
 }
 </style>
