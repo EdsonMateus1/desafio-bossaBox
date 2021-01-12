@@ -4,7 +4,7 @@
     <div class="divider"></div>
     <Input />
     <div class="divider"></div>
-    <div class="home">
+    <div class="home padding">
       <List />
     </div>
     <transition>
@@ -69,7 +69,6 @@ export default class Home extends Vue {
 .home {
   width: 100%;
   height: 100%;
-  padding: 10px;
 }
 
 .v-enter {

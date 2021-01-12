@@ -20,9 +20,8 @@ export default class Button extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@media screen and(min-width: 700px) {
-  .button {
-    font: normal normal 600 22px/24px Source Sans Pro;
-  }
+.button {
+  font: normal normal 600 23px/24px Source Sans Pro;
 }
+
 </style>

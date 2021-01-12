@@ -40,9 +40,10 @@ export default class Input extends Vue {
   color: #b1adb9;
 }
 
-@media  screen and(min-width: 500px) {
+@media  screen and(min-width: 900px) {
   .input-container {
     width: 80%;
+    padding: 0px;
   }
 }
 </style>

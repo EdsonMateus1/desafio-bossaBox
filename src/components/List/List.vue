@@ -44,19 +44,13 @@ export default class List extends Vue {
 <style scoped lang="scss">
 .grid-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(100%, auto));
   gap: 50px;
   padding-bottom: 100px;
 }
 
 .entrada {
   animation: entrada 0.8s steps(50) 0s;
-}
-
-@media only screen and(min-width: 700px) {
-  .grid-list {
-    grid-template-columns: repeat(auto-fit, minmax(100%, auto));
-  }
 }
 
 @keyframes entrada {

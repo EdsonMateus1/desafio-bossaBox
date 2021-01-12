@@ -1,11 +1,15 @@
 <template>
-  <div class="header">
+  <div class="header padding">
     <div class="title-container">
       <h1 class="title1">Vuttr</h1>
       <h2 class="title2">Very UseFull Tools to</h2>
       <h2 class="title2">Remember</h2>
     </div>
-    <Button :onClick="reverseShowModal" content="Adiconar uma tarefa" />
+    <Button
+      class="button-header"
+      :onClick="reverseShowModal"
+      content="Adicionar uma tool"
+    />
   </div>
 </template>
 
@@ -25,7 +29,7 @@ import { Store } from "@/interfaces/tools";
 export default class Header extends Vue {
   private store = useStore<Store>();
   reverseShowModal() {
-    this.store.commit("controllerModal")
+    this.store.commit("controllerModal");
   }
 }
 </script>
@@ -36,6 +40,21 @@ export default class Header extends Vue {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+  }
+  .title-container {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .title-container h1 {
+    display: inline;
+  }
+  .button-header {
+    width: 100%;
+  }
 }
 </style>

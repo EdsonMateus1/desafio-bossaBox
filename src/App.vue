@@ -18,23 +18,15 @@ body,
 }
 
 .title1 {
-  font: normal normal 600 32px/40px Source Sans Pro;
-  letter-spacing: 0.84px;
+  font: normal normal 600 42px/50px Source Sans Pro;
+  letter-spacing: 1px;
   color: $fontColor;
 }
 .title2 {
   text-align: left;
-  font: normal normal 600 25px/26px Source Sans Pro;
-  letter-spacing: 0.6px;
+  font: normal normal 600 30px/36px Source Sans Pro;
+  letter-spacing: 1px;
   color: $fontColor;
-}
-@media screen and(min-width: 700px) {
-  .title1 {
-    font: normal normal 600 42px/50px Source Sans Pro;
-  }
-  .title2 {
-    font: normal normal 600 30px/36px Source Sans Pro;
-  }
 }
 
 button {
@@ -51,7 +43,7 @@ button {
   background: #0dcb7d 0% 0% no-repeat padding-box;
   border-radius: 5px;
   padding: 10px;
-  font: normal normal 600 18px/16px Source Sans Pro;
+  font: normal normal 600 22px/20px Source Sans Pro;
   color: #ffffff;
   border: none;
   outline-style: none;
@@ -81,4 +73,5 @@ textarea {
 svg {
   fill: #ffffff;
 }
+
 </style>

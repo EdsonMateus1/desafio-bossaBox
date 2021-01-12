@@ -163,7 +163,11 @@ export default class Create extends Vue {
 .combo-box-container {
   display: flex;
   align-items: center;
-  height: 50px !important;
+  min-height: 50px !important;
+  height: auto !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
 }
 .combo-box {
   background: #ffffff 0% 0% no-repeat padding-box;
@@ -172,9 +176,7 @@ export default class Create extends Vue {
   font: normal normal normal 20px/26px Source Sans Pro;
   letter-spacing: 0.4px;
   color: #170c3a;
-  margin: 0px 5px;
-  height: 42px;
-  padding: 5px;
+  padding: 8px;
   display: flex;
   align-items: center;
 }
@@ -206,7 +208,7 @@ export default class Create extends Vue {
 @media only screen and (max-width: 450px) {
   .modalForm {
     height: 100%;
-     padding: 20px 15px 0px;
+    padding: 20px 15px 0px;
   }
 }
 </style>
