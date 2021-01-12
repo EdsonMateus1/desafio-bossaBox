@@ -202,4 +202,11 @@ export default class Create extends Vue {
     padding: 25px 20px 30px;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .modalForm {
+    height: 100%;
+     padding: 20px 15px 0px;
+  }
+}
 </style>

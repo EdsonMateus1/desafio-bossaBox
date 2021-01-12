@@ -10,7 +10,7 @@
     <transition>
       <div v-if="showModal" class="container-modal">
         <Create />
-      </div>
+       </div>
     </transition>
   </div>
 </template>
@@ -77,7 +77,7 @@ export default class Home extends Vue {
 }
 
 .v-enter-active {
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 .v-enter-to {
   opacity: 1;
@@ -88,13 +88,13 @@ export default class Home extends Vue {
 }
 
 .v-leave-active {
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 .v-leave-to {
   opacity: 0;
-  transform: scale(1.2);
+  transform: translateX(100%);
 }
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 900px) {
   .home {
     width: 80%;
   }
