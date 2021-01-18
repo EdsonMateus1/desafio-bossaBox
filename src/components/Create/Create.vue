@@ -104,12 +104,18 @@ export default class Create extends Vue {
     description: "",
     tags: [],
   };
+  
   closeModal() {
     this.store.commit("controllerModal");
   }
+
   addComboBoxController() {
-    this.toolsForm.tags.push(this.tagsControoler);
-    this.tagsControoler = "";
+    if (this.tagsControoler) {
+      this.toolsForm.tags.push(this.tagsControoler);
+      this.tagsControoler = "";
+    } else {
+      return;
+    }
   }
 
   async createTools() {

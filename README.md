@@ -48,4 +48,3 @@ fornecido (wireframe, styleguide);
 ![ScreenshotbossaBox_1](https://user-images.githubusercontent.com/57047448/104052542-a47e9400-51c8-11eb-8b63-03af7f867719.png)
 
 
->## <a href="https://app.bossabox.com/profile/skills/challenges/5e3c732f75530e000797e9bd">Link para as instruções ou desafio</a>

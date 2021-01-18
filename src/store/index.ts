@@ -16,7 +16,7 @@ export default createStore<Store>({
       state.query = query;
     },
     controllerModal(state) {
-      state.showModal = !state.showModal
+      state.showModal = !state.showModal;
     },
   },
   actions: {
@@ -43,12 +43,9 @@ export default createStore<Store>({
         const res = await axios.post("/tools", data);
         if (res.status === 201) {
           dispatch("getTools");
-          return true;
         }
-        return false;
       } catch (error) {
         console.log("post", error);
-        return false;
       }
     },
   },
