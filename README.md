@@ -87,3 +87,5 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 Esse projeto está sob licença livre
 
+> link do deploy(obs é necessário executar a api listada acima) : https://heuristic-pasteur-21fffb.netlify.app/ 
+
