@@ -9,6 +9,7 @@ export default createStore<Store>({
     showModalCreate: false,
     showModalDelete: false,
     idTool: "",
+    queryTags: false,
   },
   mutations: {
     setTools(state, tools) {
@@ -25,6 +26,9 @@ export default createStore<Store>({
     },
     controllerDelete(state: Store, id: string) {
       state.idTool = id;
+    },
+    controllerQueryTags(state: Store) {
+      state.queryTags = !state.queryTags;
     },
   },
   actions: {
@@ -64,16 +68,17 @@ export default createStore<Store>({
         if (!query) return state.tools;
         return state.tools.filter((tool) => {
           const queryFormat = query.toLocaleLowerCase().trim();
-          return (
-            tool.tags
+          if (state.queryTags) {
+            return tool.tags
               .toString()
               .toLocaleLowerCase()
-              .includes(queryFormat) ||
-            tool.title
+              .includes(queryFormat);
+          } else {
+            return tool.title
               .toString()
               .toLocaleLowerCase()
-              .includes(queryFormat)
-          );
+              .includes(queryFormat);
+          }
         });
       };
     },

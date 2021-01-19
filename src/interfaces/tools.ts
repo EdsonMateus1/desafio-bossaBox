@@ -12,6 +12,7 @@ export interface Store {
   showModalCreate: boolean;
   showModalDelete: boolean;
   idTool : string
+  queryTags : boolean;
 }
 
 

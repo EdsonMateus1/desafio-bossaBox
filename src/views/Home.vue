@@ -1,9 +1,6 @@
 <template>
   <div :class="{ 'overflow-hidden': showModalCreate || showModalDelete }" class="layout">
     <Header />
-    <div class="divider"></div>
-    <Input />
-    <div class="divider"></div>
     <div class="home padding">
       <List />
     </div>

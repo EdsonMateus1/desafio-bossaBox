@@ -57,9 +57,9 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="15"
+                height="20"
                 viewBox="0 0 24 24"
-                width="15"
+                width="20"
               >
                 <path d="M0 0h24v24H0z" fill="none" />
                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
@@ -188,23 +188,27 @@ export default class Create extends Vue {
   align-items: center;
 }
 .button-add-tags {
-  padding: 4px;
-  margin-left: 8px;
-  font: normal normal 600 15px/13px Source Sans Pro;
-}
-.container-button-add {
-  margin: 5px 0px;
-}
-.button-fechar {
-  padding: 4px;
-  font: normal normal 600 15px/13px Source Sans Pro;
-  align-self: flex-end;
+  height: 20px;
+  width: auto;
+  margin-left: 10px;
   background-color: white !important;
   box-shadow: none;
 }
-.button-fechar svg {
+.container-button-add {
+  margin: 5px 0px;
+  display: flex;
+  align-items: center;
+}
+.button-fechar {
+  align-self: flex-end;
+  background-color: white !important;
+  width: auto !important;
+  box-shadow: none;
+}
+svg {
   fill: #10b26c;
 }
+
 @media only screen and(min-width: 900px) {
   .modalForm {
     width: 900px;

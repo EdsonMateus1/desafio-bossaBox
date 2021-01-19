@@ -86,9 +86,9 @@ $tagsColor: #10b26c;
 }
 
 .button-card {
-  width: 6em;
+  width: 100px;
+  height: 30px;
   align-self: flex-end;
-  padding: 5px;
   margin-bottom: 30px;
 }
 
@@ -98,7 +98,7 @@ $tagsColor: #10b26c;
     flex-direction: row;
     gap: 20px;
   }
-  .button-card{
+  .button-card {
     margin-bottom: 0px;
   }
 }

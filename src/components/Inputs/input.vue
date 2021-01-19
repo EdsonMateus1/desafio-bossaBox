@@ -1,5 +1,5 @@
 <template>
-  <div class="padding input-container">
+  <div class="">
     <input
       @keyup="queryTools"
       v-model="query"
@@ -35,7 +35,7 @@ export default class Input extends Vue {
   width: 100%;
 }
 .inputShared::placeholder {
-  font: normal normal normal 20px/26px Source Sans Pro;
+  font: normal normal normal 15px/28px Source Sans Pro;
   letter-spacing: 0.4px;
   color: #b1adb9;
 }

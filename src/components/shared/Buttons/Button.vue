@@ -20,8 +20,5 @@ export default class Button extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.button {
-  font: normal normal 600 23px/24px Source Sans Pro;
-}
 
 </style>
