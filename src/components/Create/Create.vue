@@ -24,6 +24,8 @@
             name="title"
             type="text"
             id="title"
+            :class="{ error: error.title }"
+            @input="errorTitle"
           />
         </div>
 
@@ -35,6 +37,8 @@
             name="link"
             type="text"
             id="link"
+            :class="{ error: error.link }"
+            @input="errorLink"
           />
         </div>
 
@@ -45,6 +49,8 @@
             class="fields textarea"
             name="description"
             id="description"
+            :class="{ error: error.description }"
+            @input="errorDescription"
           ></textarea>
         </div>
 
@@ -74,13 +80,16 @@
             id="tags"
           />
 
-          <div class="fields input combo-box-container">
+          <div
+            :class="{ error: error.tags }"
+            class="fields input combo-box-container "
+          >
             <strong class="combo-box" v-for="tag in toolsForm.tags" :key="tag">
               {{ tag }}
             </strong>
           </div>
         </div>
-        <Button type="submit" class="button-form" content="Adicionar" />
+        <Button @click="required" type="submit" class="button-form" content="Adicionar" />
       </form>
     </div>
   </ContainerModal>
@@ -99,12 +108,54 @@ import ContainerModal from "../ContainerModal/ContainerModal.vue";
 export default class Create extends Vue {
   private store = useStore<Store>();
   private tagsControoler = "";
+  private error = {
+    title: false,
+    link: false,
+    description: false,
+    tags: false,
+  };
   private toolsForm: Tool = {
     title: "",
     link: "",
     description: "",
     tags: [],
   };
+
+  errorTitle() {
+    if (this.toolsForm.title) {
+      this.error.title = false;
+    } else {
+      this.error.title = true;
+    }
+  }
+  errorDescription() {
+    if (this.toolsForm.description) {
+      this.error.description = false;
+    } else {
+      this.error.description = true;
+    }
+  }
+  errorLink() {
+    if (this.toolsForm.link) {
+      this.error.link = false;
+    } else {
+      this.error.link = true;
+    }
+  }
+  errorTags() {
+    if (this.toolsForm.tags.length) {
+      this.error.tags = false;
+    } else {
+      this.error.tags = true;
+    }
+  }
+
+  required() {
+    this.errorTitle();
+    this.errorDescription();
+    this.errorLink();
+    this.errorTags();
+  }
 
   closeModal() {
     this.store.commit("controllerModalCreate");
@@ -113,6 +164,7 @@ export default class Create extends Vue {
   addComboBoxController() {
     if (this.tagsControoler) {
       this.toolsForm.tags.push(this.tagsControoler);
+      this.errorTags();
       this.tagsControoler = "";
     } else {
       return;
@@ -121,15 +173,15 @@ export default class Create extends Vue {
 
   async createTools() {
     if (
-      this.toolsForm.title &&
-      this.toolsForm.link &&
-      this.toolsForm.description &&
-      this.toolsForm.tags.length
+      !this.error.title &&
+      !this.error.link &&
+      !this.error.description &&
+      !this.error.tags
     ) {
       await this.store.dispatch("createTools", this.toolsForm);
       this.closeModal();
     } else {
-      alert("prencha os campos");
+      return;
     }
   }
 }
@@ -216,6 +268,9 @@ export default class Create extends Vue {
 }
 svg {
   fill: #10b26c;
+}
+.error {
+  border: 1.5px solid red;
 }
 
 @media only screen and(min-width: 900px) {
