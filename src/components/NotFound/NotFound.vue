@@ -12,6 +12,7 @@ export default class NotFound extends Vue {}
 
 <style lang="scss" scoped>
 .NotFound {
+  margin-top: 15%;
   display: flex;
   align-items: center;
   width: 100%;

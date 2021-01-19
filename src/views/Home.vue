@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="{ 'overflow-hidden': showModalCreate || showModalDelete }"
-    class="layout"
-  >
+  <div :class="{ 'overflow-hidden': showModalCreate || showModalDelete }" class="layout">
     <Header />
     <div class="divider"></div>
     <Input />
@@ -10,11 +7,9 @@
     <div class="home padding">
       <List />
     </div>
-
     <transition name="leaving">
       <Create v-if="showModalCreate" />
     </transition>
-
     <transition name="leaving">
       <ConfirmDelete v-if="showModalDelete" />
     </transition>

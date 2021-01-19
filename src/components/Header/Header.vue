@@ -1,5 +1,5 @@
 <template>
-  <div class="header padding">
+  <header class="header padding">
     <div class="title-container">
       <h1 class="title1">Vuttr</h1>
       <h2 class="title2">Very UseFull Tools to</h2>
@@ -10,7 +10,7 @@
       :onClick="reverseShowModal"
       content="Adicionar uma tool"
     />
-  </div>
+  </header>
 </template>
 
 <script lang="ts">
