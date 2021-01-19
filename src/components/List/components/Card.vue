@@ -1,9 +1,6 @@
 <template>
   <div class="card">
-    
-    <button @click="onClick" class="button-card button ">Excluir</button>
-
-
+    <button @click="onClickModal" class="button-card button ">Excluir</button>
     <a class="title-link" :href="link">{{ title }}</a>
     <p class="description font-card">{{ description }}</p>
     <div class="flex-tags">
@@ -28,7 +25,7 @@ import Button from "@/components/shared/Buttons/Button.vue";
     link: String,
     description: String,
     tags: Array,
-    onClick: Function,
+    onClickModal: Function,
   },
   components: {
     Button,

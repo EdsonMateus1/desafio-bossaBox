@@ -3,6 +3,7 @@
     <div class="confime-delete">
       <button class="button-close">
         <svg
+          @click.stop="closeModal"
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
@@ -17,8 +18,18 @@
       </button>
       <span class="text">Excluir tarefa</span>
       <div class="container-buttons">
-        <button class="button-decline font-button size-button">Cancelar</button>
-        <button class="button-confirme font-button size-button">Excluir</button>
+        <button
+          @click.stop="closeModal"
+          class="button-decline font-button size-button"
+        >
+          Cancelar
+        </button>
+        <button
+          @click.stop="confirm"
+          class="button-confirme font-button size-button"
+        >
+          Excluir
+        </button>
       </div>
     </div>
   </ContainerModal>
@@ -27,12 +38,24 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import ContainerModal from "@/components/ContainerModal/ContainerModal.vue";
+import { useStore } from "vuex";
+import { Store } from "@/interfaces/tools";
 @Options({
   components: {
     ContainerModal,
   },
 })
-export default class ConfirmDelete extends Vue {}
+export default class ConfirmDelete extends Vue {
+  private store = useStore<Store>();
+  closeModal() {
+    this.store.commit("controllerModalDelete");
+  }
+  confirm() {
+    const id = this.store.state.idTool;
+    this.store.dispatch("deleteTool", id);
+    this.store.commit("controllerModalDelete");
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -51,8 +74,14 @@ export default class ConfirmDelete extends Vue {}
 .button-close {
   text-align: end;
 }
+.button-close:hover {
+  cursor: default;
+}
 .button-close svg {
   fill: #000;
+}
+.button-close svg:hover {
+  cursor: pointer;
 }
 .text {
   letter-spacing: 0.4px;
@@ -77,13 +106,13 @@ export default class ConfirmDelete extends Vue {}
   height: 50px;
 }
 .button-decline {
-  background: #e1e7fd 0% 0% no-repeat padding-box;
+  background: #e1fdf2 0% 0% no-repeat padding-box;
   border-radius: 5px;
   text-align: center;
-  color: #365df0;
+  color: #073a1a;
 }
 .button-confirme {
-  background: #365df0 0% 0% no-repeat padding-box;
+  background: #0dcb7d 0% 0% no-repeat padding-box;
   border-radius: 5px;
   text-align: center;
   color: #ffffff;

@@ -1,5 +1,8 @@
 <template>
-  <div :class="{ 'overflow-hidden': showModal }" class="layout">
+  <div
+    :class="{ 'overflow-hidden': showModalCreate || showModalDelete }"
+    class="layout"
+  >
     <Header />
     <div class="divider"></div>
     <Input />
@@ -9,11 +12,11 @@
     </div>
 
     <transition name="leaving">
-      <Create v-if="showModal" />
+      <Create v-if="showModalCreate" />
     </transition>
 
     <transition name="leaving">
-      <ConfirmDelete />
+      <ConfirmDelete v-if="showModalDelete" />
     </transition>
   </div>
 </template>
@@ -40,12 +43,14 @@ import store from "@/store";
 })
 export default class Home extends Vue {
   private store = useStore<Store>();
-  private show = false;
   clossModal() {
     store.commit("controllerModal");
   }
-  get showModal() {
-    return store.state.showModal;
+  get showModalCreate() {
+    return store.state.showModalCreate;
+  }
+  get showModalDelete() {
+    return store.state.showModalDelete;
   }
 }
 </script>
@@ -71,7 +76,7 @@ export default class Home extends Vue {
 }
 
 .leaving-leave-active {
-  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .leaving-enter {

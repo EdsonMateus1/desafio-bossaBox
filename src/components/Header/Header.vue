@@ -29,7 +29,7 @@ import { Store } from "@/interfaces/tools";
 export default class Header extends Vue {
   private store = useStore<Store>();
   reverseShowModal() {
-    this.store.commit("controllerModal");
+    this.store.commit("controllerModalCreate");
   }
 }
 </script>

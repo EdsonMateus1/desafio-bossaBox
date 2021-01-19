@@ -107,7 +107,7 @@ export default class Create extends Vue {
   };
 
   closeModal() {
-    this.store.commit("controllerModal");
+    this.store.commit("controllerModalCreate");
   }
 
   addComboBoxController() {

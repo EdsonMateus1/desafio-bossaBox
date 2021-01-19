@@ -9,7 +9,9 @@ export interface Tool {
 export interface Store {
   tools: Array<Tool>;
   query: string;
-  showModal: boolean;
+  showModalCreate: boolean;
+  showModalDelete: boolean;
+  idTool : string
 }
 
 

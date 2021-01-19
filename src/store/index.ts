@@ -6,7 +6,9 @@ export default createStore<Store>({
   state: {
     tools: [],
     query: "",
-    showModal: false,
+    showModalCreate: false,
+    showModalDelete: false,
+    idTool: "",
   },
   mutations: {
     setTools(state, tools) {
@@ -15,8 +17,14 @@ export default createStore<Store>({
     setQuery(state, query) {
       state.query = query;
     },
-    controllerModal(state) {
-      state.showModal = !state.showModal;
+    controllerModalCreate(state: Store) {
+      state.showModalCreate = !state.showModalCreate;
+    },
+    controllerModalDelete(state: Store) {
+      state.showModalDelete = !state.showModalDelete;
+    },
+    controllerDelete(state: Store, id: string) {
+      state.idTool = id;
     },
   },
   actions: {

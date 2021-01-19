@@ -4,7 +4,7 @@
       v-for="tool in tools"
       :key="tool.id"
       v-bind="tool"
-      :onClick="() => deleteTool(tool.id)"
+      :onClickModal="() => showModal(tool.id)"
     />
   </div>
 </template>
@@ -13,13 +13,13 @@
 import { Options, Vue } from "vue-class-component";
 import Card from "./components/Card.vue";
 import { useStore } from "vuex";
-import { Store} from "@/interfaces/tools";
+import { Store } from "@/interfaces/tools";
 import ConfirmDelete from "@/components/ConfirmDelete/ConfirmDelete.vue";
 
 @Options({
   components: {
     Card,
-    ConfirmDelete
+    ConfirmDelete,
   },
   props: {
     msg: String,
@@ -32,10 +32,11 @@ export default class List extends Vue {
     return this.store.getters.filters(this.store.state.query);
   }
 
-  deleteTool(id: string) {
-    this.store.dispatch("deleteTool", id);
+  showModal(id: string) {
+    this.store.commit("controllerDelete", id);
+    this.store.commit("controllerModalDelete");
   }
-
+  
   mounted() {
     this.store.dispatch("getTools");
   }
