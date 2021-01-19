@@ -99,14 +99,12 @@ import ContainerModal from "../ContainerModal/ContainerModal.vue";
 export default class Create extends Vue {
   private store = useStore<Store>();
   private tagsControoler = "";
-  private title = "";
   private toolsForm: Tool = {
     title: "",
     link: "",
     description: "",
     tags: [],
   };
-
 
   closeModal() {
     this.store.commit("controllerModalCreate");
@@ -122,8 +120,17 @@ export default class Create extends Vue {
   }
 
   async createTools() {
-    await this.store.dispatch("createTools", this.toolsForm);
-    this.closeModal();
+    if (
+      this.toolsForm.title &&
+      this.toolsForm.link &&
+      this.toolsForm.description &&
+      this.toolsForm.tags.length
+    ) {
+      await this.store.dispatch("createTools", this.toolsForm);
+      this.closeModal();
+    } else {
+      alert("prencha os campos");
+    }
   }
 }
 </script>
