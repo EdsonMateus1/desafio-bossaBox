@@ -31,6 +31,8 @@ body,
 
 button {
   cursor: pointer;
+  background: none;
+  border: none;
 }
 .padding {
   padding: 20px;
@@ -73,5 +75,4 @@ textarea {
 svg {
   fill: #ffffff;
 }
-
 </style>
