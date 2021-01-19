@@ -92,6 +92,7 @@ import { useStore } from "vuex";
 import Button from "@/components/shared/Buttons/Button.vue";
 import { Store, Tool } from "@/interfaces/tools";
 import ContainerModal from "../ContainerModal/ContainerModal.vue";
+import useVuelidade from "@vuelidate/core";
 
 @Options({
   components: { Button, ContainerModal },
@@ -99,12 +100,14 @@ import ContainerModal from "../ContainerModal/ContainerModal.vue";
 export default class Create extends Vue {
   private store = useStore<Store>();
   private tagsControoler = "";
+  private title = "";
   private toolsForm: Tool = {
     title: "",
     link: "",
     description: "",
     tags: [],
   };
+
 
   closeModal() {
     this.store.commit("controllerModalCreate");
