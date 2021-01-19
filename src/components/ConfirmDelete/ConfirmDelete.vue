@@ -16,7 +16,7 @@
           />
         </svg>
       </button>
-      <span class="text">Excluir tarefa</span>
+      <span class="text">Excluir tarefa?</span>
       <div class="container-buttons">
         <button
           @click.stop="closeModal"

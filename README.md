@@ -3,9 +3,9 @@
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
 
-![ScreenshoBossaBoxt_1](https://user-images.githubusercontent.com/57047448/104052478-8c0e7980-51c8-11eb-8626-bd93e3691ca1.png)
+![ScreenshoBossaBoxt_1](https://user-images.githubusercontent.com/57047448/105052393-980efc80-5a4e-11eb-96d5-59301d3fbe19.png)
 
-![ScreenshotbossaBox_1](https://user-images.githubusercontent.com/57047448/104052542-a47e9400-51c8-11eb-8b63-03af7f867719.png)
+![ScreenshotbossaBox_1](https://user-images.githubusercontent.com/57047448/105052605-d60c2080-5a4e-11eb-96c1-ecd9c3e7a076.png)
 
 
 > VUTTR (Very Useful Tools to Remember).E um simples repositório para gerenciar ferramentas com seus respectivos nomes, links, descrições e tags.
@@ -14,7 +14,8 @@
 
 - [x] Cadastro de tools
 - [x] Listagem de tools
-- [x] Filtragem de tools
+- [x] busca por titulo
+- [x] busca por tag 
 - [x] Excluir  tools
 
 ## 💻 Pré-requisitos
