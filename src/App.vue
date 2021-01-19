@@ -8,7 +8,7 @@ $fontColor: #170c3a;
 html,
 body,
 #app {
-  height: 100%;
+  min-height: 100%;
 }
 * {
   box-sizing: border-box;

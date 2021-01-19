@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'overflow-hidden': showModal}"  class="layout">
+  <div :class="{ 'overflow-hidden': showModal }" class="layout">
     <Header />
     <div class="divider"></div>
     <Input />
@@ -7,10 +7,13 @@
     <div class="home padding">
       <List />
     </div>
-    <transition>
-      <div v-if="showModal" class="container-modal">
-        <Create />
-       </div>
+
+    <transition name="leaving">
+      <Create v-if="showModal" />
+    </transition>
+
+    <transition name="leaving">
+      <ConfirmDelete />
     </transition>
   </div>
 </template>
@@ -21,6 +24,8 @@ import List from "@/components/List/List.vue";
 import Header from "@/components/Header/Header.vue";
 import Input from "@/components/Inputs/input.vue";
 import Create from "@/components/Create/Create.vue";
+import ConfirmDelete from "@/components/ConfirmDelete/ConfirmDelete.vue";
+
 import { useStore } from "vuex";
 import { Store } from "@/interfaces/tools";
 import store from "@/store";
@@ -30,11 +35,12 @@ import store from "@/store";
     Header,
     Input,
     Create,
+    ConfirmDelete,
   },
 })
 export default class Home extends Vue {
   private store = useStore<Store>();
-
+  private show = false;
   clossModal() {
     store.commit("controllerModal");
   }
@@ -45,18 +51,7 @@ export default class Home extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.container-modal {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.overflow-hidden{
+.overflow-hidden {
   overflow: hidden;
 }
 
@@ -64,35 +59,32 @@ export default class Home extends Vue {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 100vh;
 }
 .home {
   width: 100%;
   height: 100%;
 }
 
-.v-enter {
+.leaving-enter-active {
+  transition: all 0.3s ease;
+}
+
+.leaving-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.leaving-enter {
+  transform: translateY(100%);
   opacity: 0;
 }
-
-.v-enter-active {
-  transition: all 0.3s;
+.leaving-enter-to {
 }
-.v-enter-to {
-  opacity: 1;
-}
-
-.v-leave {
-  opacity: 1;
-}
-
-.v-leave-active {
-  transition: all 0.3s;
-}
-.v-leave-to {
+.leaving-leave-to {
   opacity: 0;
-  transform: translateX(100%);
+  transform: scale(0);
 }
+
 @media only screen and (min-width: 900px) {
   .home {
     width: 80%;

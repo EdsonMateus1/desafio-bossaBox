@@ -1,5 +1,5 @@
 <template>
-  <div class="container-modal">
+  <ContainerModal>
     <div class="modalForm padding">
       <Button :onClick="closeModal" class="button-fechar"
         ><svg
@@ -83,7 +83,7 @@
         <Button type="submit" class="button-form" content="Adicionar" />
       </form>
     </div>
-  </div>
+  </ContainerModal>
 </template>
 
 <script lang="ts">
@@ -91,9 +91,10 @@ import { Options, Vue } from "vue-class-component";
 import { useStore } from "vuex";
 import Button from "@/components/shared/Buttons/Button.vue";
 import { Store, Tool } from "@/interfaces/tools";
+import ContainerModal from "../ContainerModal/ContainerModal.vue";
 
 @Options({
-  components: { Button },
+  components: { Button, ContainerModal },
 })
 export default class Create extends Vue {
   private store = useStore<Store>();
@@ -104,7 +105,7 @@ export default class Create extends Vue {
     description: "",
     tags: [],
   };
-  
+
   closeModal() {
     this.store.commit("controllerModal");
   }

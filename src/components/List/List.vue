@@ -14,10 +14,12 @@ import { Options, Vue } from "vue-class-component";
 import Card from "./components/Card.vue";
 import { useStore } from "vuex";
 import { Store} from "@/interfaces/tools";
+import ConfirmDelete from "@/components/ConfirmDelete/ConfirmDelete.vue";
 
 @Options({
   components: {
     Card,
+    ConfirmDelete
   },
   props: {
     msg: String,
