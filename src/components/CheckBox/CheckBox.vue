@@ -40,7 +40,7 @@ export default class Checkbox extends Vue {
   letter-spacing: 0.4px;
   color: #170c3a;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
   .container-checkbox {
     margin: 0px;
     width: 100%;

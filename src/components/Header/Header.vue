@@ -62,7 +62,7 @@ export default class Header extends Vue {
   align-items: center;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
   .header {
     width: 100%;
   }
